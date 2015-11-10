@@ -14,7 +14,7 @@ public class SquareTest {
 	}
 
 	@Test
-	public void test() {
+	public void shouldGiveFalseOnZeroAsArguments() {
 		square = new Square(0, 0);
 		assertEquals(false, square.isValid());
 	}

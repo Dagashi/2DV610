@@ -9,6 +9,11 @@ public class Square {
 		this.column = col;
 	}
 
+	
+	/**
+	 * This method checks if the square is a valid one for this board.
+	 * @return boolean.
+	 */
 	public boolean isValid() {
 		if(this.row == 0 || this.column == 0) {
 			return false;
