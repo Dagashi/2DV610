@@ -53,7 +53,10 @@ public class Square {
 	}
 
 
-
+	/**
+	 * This method return the square 1 space to the right, if it is valid, else returns null.
+	 * @return Square || null.
+	 */
 	public Square stepRight() {
 		Square tmpSquare = new Square(this.row, this.column + 1);
 		
