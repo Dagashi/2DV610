@@ -8,7 +8,8 @@ public class Square {
 		this.row = row;
 		this.column = col;
 	}
-
+	
+	
 	
 	/**
 	 * This method checks if the square is a valid one for this board.
@@ -19,6 +20,14 @@ public class Square {
 			return false;
 		}
 		return true;
+	}
+
+
+
+	public Object stepUp() {
+		// TODO Auto-generated method stub
+		Object object = new Object();
+		return object;
 	}
 
 }
