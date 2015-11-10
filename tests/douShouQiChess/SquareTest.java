@@ -30,5 +30,11 @@ public class SquareTest {
 		square = new Square(10, 5);
 		assertEquals(false, square.isValid());
 	}
+	
+	@Test
+	public void shouldGiveFalseOnColumnArgumentToHigh() {
+		square = new Square(3, 10);
+		assertEquals(false, square.isValid());
+	}
 
 }
