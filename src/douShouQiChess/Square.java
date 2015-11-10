@@ -37,4 +37,12 @@ public class Square {
 		return tmpSquare;
 	}
 
+
+
+	public Object stepDown() {
+		// TODO Auto-generated method stub
+		Object object = new Object();
+		return object;
+	}
+
 }

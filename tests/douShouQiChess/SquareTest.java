@@ -43,6 +43,12 @@ public class SquareTest {
 		assertNull(square.stepUp());
 	}
 	
+	@Test
+	public void shouldFailIfTheStepDownSquareIsNotaValidSquare() {
+		square = new Square(1, 4);
+		assertNull(square.stepDown());
+	}
+	
 	
 
 }
