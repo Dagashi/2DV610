@@ -24,5 +24,11 @@ public class SquareTest {
 		square = new Square(-1, -3);
 		assertEquals(false, square.isValid());
 	}
+	
+	@Test
+	public void shouldGiveFalseOnRowArgumentToHigh() {
+		square = new Square(10, 5);
+		assertEquals(false, square.isValid());
+	}
 
 }
