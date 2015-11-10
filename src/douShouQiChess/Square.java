@@ -18,6 +18,9 @@ public class Square {
 		if(this.row == 0 || this.column == 0) {
 			return false;
 		}
+		else if (this.row < 0 || this.column < 0) {
+			return false;
+		}
 		return true;
 	}
 
