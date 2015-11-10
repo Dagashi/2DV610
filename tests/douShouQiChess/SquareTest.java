@@ -13,9 +13,10 @@ public class SquareTest {
 		
 	}
 
-	@Test(expected=IllegalArgumentException.class)
-	public void shouldThrowExceptionWhenArgumentsAreZero() {
-		square = new Square(0,0);
+	@Test
+	public void test() {
+		square = new Square(0, 0);
+		assertEquals(false, square.isValid());
 	}
 
 }
