@@ -54,10 +54,14 @@ public class Square {
 
 
 
-	public Object stepRight() {
-		// TODO Auto-generated method stub
-		Object object = new Object();
-		return object;
+	public Square stepRight() {
+		Square tmpSquare = new Square(this.row, this.column + 1);
+		
+		if(!tmpSquare.isValid()) {
+			return null;
+		}
+		
+		return tmpSquare;
 	}
 
 }
