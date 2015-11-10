@@ -18,5 +18,11 @@ public class SquareTest {
 		square = new Square(0, 0);
 		assertEquals(false, square.isValid());
 	}
+	
+	@Test
+	public void shouldGiveFalseOnNegativeIntArguments() {
+		square = new Square(-1, -3);
+		assertEquals(false, square.isValid());
+	}
 
 }
