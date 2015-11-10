@@ -14,7 +14,7 @@ public class SquareTest {
 	}
 
 	@Test(expected=IllegalArgumentException.class)
-	public void test() {
+	public void shouldThrowExceptionWhenArgumentsAreZero() {
 		square = new Square(0,0);
 	}
 
