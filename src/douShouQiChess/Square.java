@@ -67,4 +67,11 @@ public class Square {
 		return tmpSquare;
 	}
 
+
+
+	public Object stepLeft() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

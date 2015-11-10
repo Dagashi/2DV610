@@ -55,6 +55,13 @@ public class SquareTest {
 		assertNull(square.stepRight());
 	}
 	
+	@Test
+	public void shouldFailIfTheStepLeftSquareIsWrong() {
+		square = new Square(5, 4);
+		Square leftSquare = new Square(5, 3); 
+		assertEquals(leftSquare, square.stepLeft());
+	}
+	
 	
 
 }
