@@ -38,15 +38,36 @@ public class SquareTest {
 	}
 	
 	@Test
+	public void shouldFailIfTheStepUpSquareIsWrong() {
+		square = new Square(5, 4);
+		Square upSquare = new Square(6, 4); 
+		assertEquals(upSquare, square.stepUp());
+	}
+	
+	@Test
 	public void shouldFailIfTheStepUpSquareIsNotaValidSquare() {
 		square = new Square(9, 4);
 		assertNull(square.stepUp());
 	}
 	
 	@Test
+	public void shouldFailIfTheStepDownSquareIsWrong() {
+		square = new Square(5, 4);
+		Square downSquare = new Square(4, 4); 
+		assertEquals(downSquare, square.stepDown());
+	}
+	
+	@Test
 	public void shouldFailIfTheStepDownSquareIsNotaValidSquare() {
 		square = new Square(1, 4);
 		assertNull(square.stepDown());
+	}
+	
+	@Test
+	public void shouldFailIfTheStepRightSquareIsWrong() {
+		square = new Square(5, 4);
+		Square rightSquare = new Square(5, 5); 
+		assertEquals(rightSquare, square.stepRight());
 	}
 	
 	@Test

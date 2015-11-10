@@ -74,7 +74,10 @@ public class Square {
 		return tmpSquare;
 	}
 
-
+	/**
+	 * This method return the square 1 space to the left, if it is valid, else returns null.
+	 * @return Square || null.
+	 */
 	public Square stepLeft() {
 		Square tmpSquare = new Square(this.row, this.column - 1);
 		
