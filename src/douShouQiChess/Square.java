@@ -40,9 +40,13 @@ public class Square {
 
 
 	public Object stepDown() {
-		// TODO Auto-generated method stub
-		Object object = new Object();
-		return object;
+		Square tmpSquare = new Square(this.row - 1, this.column);
+		
+		if(!tmpSquare.isValid()) {
+			return null;
+		}
+		
+		return tmpSquare;
 	}
 
 }
