@@ -81,6 +81,10 @@ public class Square {
 	public Square stepLeft() {
 		Square tmpSquare = new Square(this.row, this.column - 1);
 		
+		if(!tmpSquare.isValid()) {
+			return null;
+		}
+		
 		return tmpSquare;
 	}
 	
