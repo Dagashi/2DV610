@@ -9,6 +9,13 @@ public class Square {
 		this.column = col;
 	}
 	
+	public int getRow() {
+		return row;
+	}
+	
+	public int getColumn() {
+		return column;
+	}
 	
 	
 	/**
@@ -68,10 +75,23 @@ public class Square {
 	}
 
 
-
-	public Object stepLeft() {
-		// TODO Auto-generated method stub
-		return null;
+	public Square stepLeft() {
+		Square tmpSquare = new Square(this.row, this.column - 1);
+		
+		return tmpSquare;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Square other = (Square) obj;
+		
+		if (this.column != other.column) {
+			return false;
+		}
+		if (this.row != other.row) {
+			return false;
+		}
+		return true;
 	}
 
 }

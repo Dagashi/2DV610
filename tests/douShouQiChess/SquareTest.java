@@ -62,6 +62,5 @@ public class SquareTest {
 		assertEquals(leftSquare, square.stepLeft());
 	}
 	
-	
 
 }
