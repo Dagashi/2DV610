@@ -23,6 +23,10 @@ public class Square {
 	}
 
 
+	/**
+	 * This method return the square 1 space upwards if it is valid, else returns null.
+	 * @return Square || null.
+	 */
 	public Square stepUp() {
 		Square tmpSquare = new Square(this.row + 1, this.column);
 		
