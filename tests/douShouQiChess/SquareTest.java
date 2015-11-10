@@ -49,6 +49,12 @@ public class SquareTest {
 		assertNull(square.stepDown());
 	}
 	
+	@Test
+	public void shouldFailIfTheStepRightSquareIsNotaValidSquare() {
+		square = new Square(5, 7);
+		assertNull(square.stepRight());
+	}
+	
 	
 
 }

@@ -52,4 +52,12 @@ public class Square {
 		return tmpSquare;
 	}
 
+
+
+	public Object stepRight() {
+		// TODO Auto-generated method stub
+		Object object = new Object();
+		return object;
+	}
+
 }
