@@ -83,5 +83,11 @@ public class SquareTest {
 		assertEquals(leftSquare, square.stepLeft());
 	}
 	
+	@Test
+	public void shouldFailIfTheStepLeftSquareIsNotaValidSquare() {
+		square = new Square(5, 1);
+		assertNull(square.stepLeft());
+	}
+	
 
 }
