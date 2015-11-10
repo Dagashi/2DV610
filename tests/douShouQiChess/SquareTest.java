@@ -33,7 +33,7 @@ public class SquareTest {
 	
 	@Test
 	public void shouldGiveFalseOnColumnArgumentToHigh() {
-		square = new Square(3, 10);
+		square = new Square(3, 8);
 		assertEquals(false, square.isValid());
 	}
 

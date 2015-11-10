@@ -15,7 +15,7 @@ public class Square {
 	 * @return boolean.
 	 */
 	public boolean isValid() {
-		if(this.row <= 0 || this.row > 9 || this.column <= 0 || this.column > 9) {
+		if(this.row <= 0 || this.row > 9 || this.column <= 0 || this.column > 7) {
 			return false;
 		}
 		return true;
