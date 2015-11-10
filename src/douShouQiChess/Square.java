@@ -1,12 +1,18 @@
 package douShouQiChess;
 
 public class Square {
-
+	private int row;
+	private int column;
+	
 	public Square(int row, int col) {
-		
+		this.row = row;
+		this.column = col;
 	}
 
 	public boolean isValid() {
+		if(this.row == 0 || this.column == 0) {
+			return false;
+		}
 		return true;
 	}
 
