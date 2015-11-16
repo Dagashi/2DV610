@@ -21,6 +21,11 @@ public class Board {
 		}
 	}
 
+	/**
+	 * This method returns the Piece on the given square if any.
+	 * @param Square square
+	 * @return the piece at the square.
+	 */
 	public Piece getPieceAt(Square square) {
 		return positions.get(square);
 	}
