@@ -21,5 +21,14 @@ public class BoardTest {
 		board.setPieceAt(square, piece);
 		assertEquals(1, board.positions.size());
 	}
+	
+	@Test
+	public void ShouldFailIfTheSquareIsNotAValidPosition() {
+		Piece piece = new Piece();
+		Square square = new Square(12, 3);
+		
+		board.setPieceAt(square, piece);
+		assertEquals(0, board.positions.size());
+	}
 
 }
