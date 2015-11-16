@@ -8,8 +8,42 @@ public class Square {
 	public Square(int row, int col) {
 		this.row = row;
 		this.column = col;
+		this.squareType = this.checkMyType();
 	}
 	
+	private Type checkMyType() {
+		if(this.row == 4 || this.row == 5 || this.row == 6) {
+			if(this.column == 2 || this.column == 3 || this.column == 5 || this.column == 6) {
+				return Type.WATER;
+			}
+			else {
+				return Type.REGULAR;
+			}
+		}
+		else if(this.row == 1 || this.row == 9) {
+			if(this.column == 4) {
+				return Type.DEN;
+			}
+			else if(this.column == 3 || this.column == 5) {
+				return Type.TRAP;
+			}
+			else {
+				return Type.REGULAR;
+			}
+		}
+		else if(this.row == 2 || this.row == 8) {
+			if(this.column == 4) {
+				return Type.TRAP;
+			}
+			else {
+				return Type.REGULAR;
+			}
+		}
+		else {
+			return Type.REGULAR;
+		}
+	}
+
 	public enum Type {
 		REGULAR, WATER, TRAP, DEN;
 	}
@@ -94,8 +128,7 @@ public class Square {
 	}
 	
 	public Type getType() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.squareType;
 	}
 	
 	@Override

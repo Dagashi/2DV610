@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import douShouQiChess.Square.Type;
+
 public class SquareTest {
 	private Square square;
 	
@@ -92,7 +94,16 @@ public class SquareTest {
 	@Test
 	public void shouldFailIfTheSquareTypeIsNotRight() {
 		square = new Square(4, 2);
-		assertEquals("WATER", square.getType());
+		assertEquals(Type.WATER, square.getType());
+		
+		square = new Square(1, 4);
+		assertEquals(Type.DEN, square.getType());
+		
+		square = new Square(9, 3);
+		assertEquals(Type.TRAP, square.getType());
+		
+		square = new Square(5, 4);
+		assertEquals(Type.REGULAR, square.getType());
 	}
 	
 
