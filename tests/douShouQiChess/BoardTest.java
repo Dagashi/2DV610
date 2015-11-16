@@ -57,6 +57,7 @@ public class BoardTest {
 		Square from = new Square(2, 3);
 		Square to = from.stepUp();
 		
+		board.setPieceAt(from, piece);
 		board.movePiece(from, to);
 		
 		assertEquals(piece, board.getPieceAt(to));

@@ -40,8 +40,10 @@ public class Board {
 	}
 
 	public void movePiece(Square from, Square to) {
-		// TODO Auto-generated method stub
+		Piece piece = getPieceAt(from);
 		
+		removePieceAt(from);
+		setPieceAt(to, piece);
 	}
 
 }
