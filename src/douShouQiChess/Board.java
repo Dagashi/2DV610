@@ -39,11 +39,17 @@ public class Board {
 		return positions.remove(square);
 	}
 
+	/**
+	 * This method moves the Piece from the Square "from" to the Square "to"
+	 * @param Square from
+	 * @param Square to
+	 */
 	public void movePiece(Square from, Square to) {
-		Piece piece = getPieceAt(from);
-		
-		removePieceAt(from);
-		setPieceAt(to, piece);
+		if(to.isValid()) {
+			Piece piece = getPieceAt(from);
+			removePieceAt(from);
+			setPieceAt(to, piece);
+		}
 	}
 
 }
