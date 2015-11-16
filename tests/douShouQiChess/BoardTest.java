@@ -30,5 +30,14 @@ public class BoardTest {
 		board.setPieceAt(square, piece);
 		assertEquals(0, board.positions.size());
 	}
+	
+	@Test
+	public void ShouldFailIfTheSquareDoesNotReturnTheRightPiece() {
+		Piece piece = new Piece();
+		Square square = new Square(2, 3);
+		
+		board.setPieceAt(square, piece);
+		assertEquals(piece, board.getPieceAt(square));
+	}
 
 }
