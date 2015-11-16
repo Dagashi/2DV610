@@ -11,6 +11,11 @@ public class Square {
 		this.squareType = this.checkMyType();
 	}
 	
+	/**
+	 * This method checks what type of square it is.
+	 * Used at constructor.
+	 * @return Type
+	 */
 	private Type checkMyType() {
 		if(this.row == 4 || this.row == 5 || this.row == 6) {
 			if(this.column == 2 || this.column == 3 || this.column == 5 || this.column == 6) {
@@ -54,6 +59,10 @@ public class Square {
 	
 	public int getColumn() {
 		return column;
+	}
+	
+	public Type getType() {
+		return squareType;
 	}
 	
 	
@@ -125,10 +134,6 @@ public class Square {
 		}
 		
 		return tmpSquare;
-	}
-	
-	public Type getType() {
-		return this.squareType;
 	}
 	
 	@Override
