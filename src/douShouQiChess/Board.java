@@ -52,6 +52,11 @@ public class Board {
 		}
 	}
 
+	/**
+	 * This method returns true id the Square is empty, else false.
+	 * @param Square square
+	 * @return boolean
+	 */
 	public boolean isSquareEmpty(Square square) {
 		if(square == null) {
 			return false;
