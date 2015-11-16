@@ -50,5 +50,17 @@ public class BoardTest {
 		assertEquals(piece, board.removePieceAt(square));
 		assertEquals(0, board.positions.size());
 	}
+	
+	@Test
+	public void ShouldFailIfThePieceIsNotMoved() {
+		Piece piece = new Piece();
+		Square from = new Square(2, 3);
+		Square to = from.stepUp();
+		
+		board.movePiece(from, to);
+		
+		assertEquals(piece, board.getPieceAt(to));
+		assertEquals(null, board.getPieceAt(from));
+	}
 
 }

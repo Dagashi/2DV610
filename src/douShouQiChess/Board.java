@@ -39,4 +39,9 @@ public class Board {
 		return positions.remove(square);
 	}
 
+	public void movePiece(Square from, Square to) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
