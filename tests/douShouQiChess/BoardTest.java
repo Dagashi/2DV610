@@ -14,7 +14,7 @@ public class BoardTest {
 	}
 
 	@Test
-	public void test() {
+	public void ShouldFailIfThePieceIsNotAddedToBoard() {
 		Piece piece = new Piece();
 		Square square = new Square(2, 3);
 		

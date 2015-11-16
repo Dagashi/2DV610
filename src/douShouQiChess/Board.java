@@ -9,8 +9,14 @@ public class Board {
 		positions = new HashMap<Square, Piece>();
 	}
 
-	public void setPieceAt(Square square, Piece piece) {
-		positions.put(square, piece);
+	/**
+	 * This method adds the piece to the square at the board.
+	 * Used for initialize of the board.
+	 * @param Square position
+	 * @param Piece piece
+	 */
+	public void setPieceAt(Square position, Piece piece) {
+		positions.put(position, piece);
 	}
 
 }
