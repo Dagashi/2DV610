@@ -16,7 +16,9 @@ public class Board {
 	 * @param Piece piece
 	 */
 	public void setPieceAt(Square position, Piece piece) {
-		positions.put(position, piece);
+		if(position.isValid()) {
+			positions.put(position, piece);
+		}
 	}
 
 }
