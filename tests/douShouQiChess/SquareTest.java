@@ -89,5 +89,11 @@ public class SquareTest {
 		assertNull(square.stepLeft());
 	}
 	
+	@Test
+	public void shouldFailIfTheSquareTypeIsNotRight() {
+		square = new Square(4, 2);
+		assertEquals("WATER", square.getType());
+	}
+	
 
 }

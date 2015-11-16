@@ -3,10 +3,15 @@ package douShouQiChess;
 public class Square {
 	private int row;
 	private int column;
+	private Type squareType;
 	
 	public Square(int row, int col) {
 		this.row = row;
 		this.column = col;
+	}
+	
+	public enum Type {
+		REGULAR, WATER, TRAP, DEN;
 	}
 	
 	public int getRow() {
@@ -86,6 +91,11 @@ public class Square {
 		}
 		
 		return tmpSquare;
+	}
+	
+	public Type getType() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	@Override
