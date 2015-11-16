@@ -15,7 +15,7 @@ public class PieceTest {
 	}
 
 	@Test
-	public void test() {
+	public void ShouldFailIfThePieceHasTheWrongValue() {
 		Piece piece = new Piece(Animal.RAT);
 		assertEquals(1, piece.getValue());
 	}

@@ -13,7 +13,19 @@ public class Piece {
 		this.animal = animal;
 		this.value = this.assignValue();
 	}
+	
+	public int getValue() {
+		return value;
+	}
+	
+	public Animal getAnimal() {
+		return animal;
+	}
 
+	/**
+	 * This method returns the correct value of this piece on initialization. 
+	 * @return Int value
+	 */
 	private int assignValue() {
 		switch (this.animal) {
 		case RAT:
@@ -34,9 +46,5 @@ public class Piece {
 			return 8;
 		}
 		return 0;
-	}
-
-	public int getValue() {
-		return value;
 	}
 }
