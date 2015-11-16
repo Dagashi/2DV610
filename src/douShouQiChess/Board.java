@@ -22,8 +22,7 @@ public class Board {
 	}
 
 	public Piece getPieceAt(Square square) {
-		// TODO Auto-generated method stub
-		return null;
+		return positions.get(square);
 	}
 
 }
