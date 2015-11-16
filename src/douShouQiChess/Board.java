@@ -31,8 +31,7 @@ public class Board {
 	}
 	
 	public Piece removePieceAt(Square square) {
-		// TODO Auto-generated method stub
-		return null;
+		return positions.remove(square);
 	}
 
 }
