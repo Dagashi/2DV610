@@ -10,8 +10,7 @@ public class Board {
 	}
 
 	public void setPieceAt(Square square, Piece piece) {
-		// TODO Auto-generated method stub
-		
+		positions.put(square, piece);
 	}
 
 }
