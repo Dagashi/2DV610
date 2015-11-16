@@ -39,5 +39,16 @@ public class BoardTest {
 		board.setPieceAt(square, piece);
 		assertEquals(piece, board.getPieceAt(square));
 	}
+	
+	@Test
+	public void ShouldFailIfThePieceIsNotRemoved() {
+		Piece piece = new Piece();
+		Square square = new Square(2, 3);
+		
+		board.setPieceAt(square, piece);
+		
+		assertEquals(piece, board.removePieceAt(square));
+		assertEquals(0, board.positions.size());
+	}
 
 }

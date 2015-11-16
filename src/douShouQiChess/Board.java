@@ -29,5 +29,10 @@ public class Board {
 	public Piece getPieceAt(Square square) {
 		return positions.get(square);
 	}
+	
+	public Piece removePieceAt(Square square) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
