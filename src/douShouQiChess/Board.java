@@ -10,7 +10,7 @@ public class Board {
 	}
 
 	/**
-	 * This method adds the piece to the square at the board.
+	 * This method adds the Piece to the Square at the Board.
 	 * Used for initialize of the board.
 	 * @param Square position
 	 * @param Piece piece
@@ -22,14 +22,19 @@ public class Board {
 	}
 
 	/**
-	 * This method returns the Piece on the given square if any.
+	 * This method returns the Piece at the given Square if any.
 	 * @param Square square
-	 * @return the piece at the square.
+	 * @return The piece at the square.
 	 */
 	public Piece getPieceAt(Square square) {
 		return positions.get(square);
 	}
 	
+	/**
+	 * This method removes the Piece at the given Square if any.
+	 * @param Square square
+	 * @return The piece that was just removed.
+	 */
 	public Piece removePieceAt(Square square) {
 		return positions.remove(square);
 	}
