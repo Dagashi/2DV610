@@ -63,5 +63,17 @@ public class BoardTest {
 		assertEquals(piece, board.getPieceAt(to));
 		assertEquals(null, board.getPieceAt(from));
 	}
+	
+	@Test
+	public void ShouldFailIfTheSquareIsFree() {
+		Piece piece = new Piece();
+		Square square = new Square(2, 3);
+		Square otherSquare = square.stepUp();
+		
+		board.setPieceAt(square, piece);
+		
+		assertEquals(true, board.isSquareEmpty(square));
+		assertEquals(false, board.isSquareEmpty(otherSquare));
+	}
 
 }

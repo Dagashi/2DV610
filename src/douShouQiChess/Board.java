@@ -52,4 +52,9 @@ public class Board {
 		}
 	}
 
+	public boolean isSquareEmpty(Square square) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
