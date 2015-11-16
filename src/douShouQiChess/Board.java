@@ -53,8 +53,17 @@ public class Board {
 	}
 
 	public boolean isSquareEmpty(Square square) {
-		// TODO Auto-generated method stub
-		return false;
+		if(square == null) {
+			return false;
+		}
+		
+		Piece piece = getPieceAt(square);
+		if(piece != null) {
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 
 }

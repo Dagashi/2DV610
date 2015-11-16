@@ -72,8 +72,8 @@ public class BoardTest {
 		
 		board.setPieceAt(square, piece);
 		
-		assertEquals(true, board.isSquareEmpty(square));
-		assertEquals(false, board.isSquareEmpty(otherSquare));
+		assertEquals(false, board.isSquareEmpty(square));
+		assertEquals(true, board.isSquareEmpty(otherSquare));
 	}
 
 }
