@@ -3,6 +3,7 @@ package douShouQiChess;
 public class Piece {
 	private int value;
 	private Animal animal;
+	private Color color;
 	
 	public enum Animal {
 		RAT, CAT, WOLF, DOG,
@@ -16,6 +17,7 @@ public class Piece {
 	public Piece(Animal animal, Color color) {
 		this.animal = animal;
 		this.value = this.assignValue();
+		this.color = color;
 	}
 	
 	public int getValue() {
@@ -27,8 +29,7 @@ public class Piece {
 	}
 	
 	public Color getColor() {
-		// TODO Auto-generated method stub
-		return null;
+		return color;
 	}
 
 	/**
