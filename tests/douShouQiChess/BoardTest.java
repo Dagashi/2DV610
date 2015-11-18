@@ -78,5 +78,22 @@ public class BoardTest {
 		assertEquals(false, board.isSquareEmpty(square));
 		assertEquals(true, board.isSquareEmpty(otherSquare));
 	}
+	
+	@Test
+	public void ShouldFailIfThePieceWithLowerValueCaptureAPieceWithHigherValue() {
+		Piece piece = new Piece(Animal.RAT,Color.DARK);
+		Square square = new Square(2, 3);
+		board.setPieceAt(square, piece);
+		
+		Piece piece2 = new Piece(Animal.CAT,Color.DARK);
+		Square otherSquare = square.stepUp();
+		board.setPieceAt(otherSquare, piece2);
+		
+		board.movePiece(square, otherSquare);
+		
+		assertEquals(piece2, board.getPieceAt(otherSquare));
+	}
+	
+	
 
 }
