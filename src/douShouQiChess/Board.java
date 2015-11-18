@@ -46,9 +46,18 @@ public class Board {
 	 */
 	public void movePiece(Square from, Square to) {
 		if(to.isValid()) {
-			Piece piece = getPieceAt(from);
-			removePieceAt(from);
-			setPieceAt(to, piece);
+			if(!isSquareEmpty(to)) {
+				if(getPieceAt(from).getValue() >= getPieceAt(to).getValue()) {
+					Piece piece = getPieceAt(from);
+					removePieceAt(from);
+					setPieceAt(to, piece);
+				}
+			}
+			else {
+				Piece piece = getPieceAt(from);
+				removePieceAt(from);
+				setPieceAt(to, piece);
+			}
 		}
 	}
 
