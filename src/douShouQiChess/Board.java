@@ -107,6 +107,7 @@ public class Board {
 					capturePiece(from, to);
 				}
 			}
+			//If the tile that are attacked are the attackers TRAP then capture without regard to values.
 			else if(to.getType() == Type.TRAP && to.getOwner().toString() == attackingPiece.getColor().toString()) {
 				capturePiece(from, to);
 			}
