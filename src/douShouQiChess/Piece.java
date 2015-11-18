@@ -20,14 +20,23 @@ public class Piece {
 		this.color = color;
 	}
 	
+	/**
+	 * @return Integer this.value
+	 */
 	public int getValue() {
 		return value;
 	}
 	
+	/**
+	 * @return Animal this.animal
+	 */
 	public Animal getAnimal() {
 		return animal;
 	}
 	
+	/**
+	 * @return Color this.color
+	 */
 	public Color getColor() {
 		return color;
 	}
