@@ -152,6 +152,19 @@ public class BoardTest {
 		assertEquals(piece, board.getPieceAt(from));
 	}
 	
+	@Test
+	public void ShouldFailIfAPieceIsMovedToItsOwnDen() {
+		Piece piece = new Piece(Animal.WOLF,Color.DARK);
+		Square from = new Square(1, 3);
+		Square to = from.stepRight();
+		
+		board.setPieceAt(from, piece);
+		board.tryMovePiece(from, to);
+		
+		assertEquals(null, board.getPieceAt(to));
+		assertEquals(piece, board.getPieceAt(from));
+	}
+	
 	
 
 }
