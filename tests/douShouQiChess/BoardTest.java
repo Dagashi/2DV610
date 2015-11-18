@@ -154,7 +154,7 @@ public class BoardTest {
 	
 	@Test
 	public void ShouldFailIfAPieceIsMovedToItsOwnDen() {
-		Piece piece = new Piece(Animal.WOLF,Color.DARK);
+		Piece piece = new Piece(Animal.WOLF,Color.LIGHT);
 		Square from = new Square(1, 3);
 		Square to = from.stepRight();
 		

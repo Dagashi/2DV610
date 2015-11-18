@@ -4,11 +4,16 @@ public class Square {
 	private int row;
 	private int column;
 	private Type squareType;
+	private Owner owner;
 	
 	public Square(int row, int col) {
 		this.row = row;
 		this.column = col;
-		this.squareType = this.checkMyType();
+		this.squareType = this.checkMyTypeAndOwner();
+	}
+	
+	public enum Owner {
+		DARK, LIGHT, NEUTRAL
 	}
 	
 	/**
@@ -16,35 +21,67 @@ public class Square {
 	 * Used at constructor.
 	 * @return Type
 	 */
-	private Type checkMyType() {
+	private Type checkMyTypeAndOwner() {
 		if(this.row == 4 || this.row == 5 || this.row == 6) {
 			if(this.column == 2 || this.column == 3 || this.column == 5 || this.column == 6) {
+				this.owner = Owner.NEUTRAL;
 				return Type.WATER;
 			}
 			else {
+				this.owner = Owner.NEUTRAL;
 				return Type.REGULAR;
 			}
 		}
-		else if(this.row == 1 || this.row == 9) {
+		else if(this.row == 1) {
 			if(this.column == 4) {
+				this.owner = Owner.LIGHT;
 				return Type.DEN;
 			}
 			else if(this.column == 3 || this.column == 5) {
+				this.owner = Owner.LIGHT;
 				return Type.TRAP;
 			}
 			else {
+				this.owner = Owner.NEUTRAL;
 				return Type.REGULAR;
 			}
 		}
-		else if(this.row == 2 || this.row == 8) {
+		else if(this.row == 9) {
 			if(this.column == 4) {
+				this.owner = Owner.DARK;
+				return Type.DEN;
+			}
+			else if(this.column == 3 || this.column == 5) {
+				this.owner = Owner.DARK;
 				return Type.TRAP;
 			}
 			else {
+				this.owner = Owner.NEUTRAL;
+				return Type.REGULAR;
+			}
+		}
+		else if(this.row == 2) {
+			if(this.column == 4) {
+				this.owner = Owner.LIGHT;
+				return Type.TRAP;
+			}
+			else {
+				this.owner = Owner.NEUTRAL;
+				return Type.REGULAR;
+			}
+		}
+		else if(this.row == 8) {
+			if(this.column == 4) {
+				this.owner = Owner.DARK;
+				return Type.TRAP;
+			}
+			else {
+				this.owner = Owner.NEUTRAL;
 				return Type.REGULAR;
 			}
 		}
 		else {
+			this.owner = Owner.NEUTRAL;
 			return Type.REGULAR;
 		}
 	}
@@ -63,6 +100,10 @@ public class Square {
 	
 	public Type getType() {
 		return squareType;
+	}
+	
+	public Owner getOwner() {
+		return owner;
 	}
 	
 	

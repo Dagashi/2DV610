@@ -55,13 +55,21 @@ public class Board {
 			}
 			//Check if the Square is not a WATER-Square.
 			else if(to.getType() != Type.WATER) {
-				//If the square contains another Piece then try to capture it.
-				if(!isSquareEmpty(to)) {
-					tryCapturePiece(from, to);
+				if(to.getType() == Type.DEN) {
+					if(to.getOwner().toString() != getPieceAt(from).getColor().toString()) {
+						movePiece(from, to);
+						//TODO: Register Victory!
+					}
 				}
-				//Otherwise move it normally.
 				else {
-					movePiece(from, to);
+					//If the square contains another Piece then try to capture it.
+					if(!isSquareEmpty(to)) {
+						tryCapturePiece(from, to);
+					}
+					//Otherwise move it normally.
+					else {
+						movePiece(from, to);
+					}
 				}
 			}
 		}
