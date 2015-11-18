@@ -109,6 +109,21 @@ public class BoardTest {
 		assertEquals(piece, board.getPieceAt(square));
 	}
 	
+	@Test
+	public void ShouldFailIfARatDoesntCapturElephant() {
+		Piece piece = new Piece(Animal.ELEPHANT,Color.LIGHT);
+		Square square = new Square(2, 3);
+		board.setPieceAt(square, piece);
+		
+		Piece piece2 = new Piece(Animal.RAT,Color.DARK);
+		Square otherSquare = square.stepUp();
+		board.setPieceAt(otherSquare, piece2);
+		
+		board.tryMovePiece(otherSquare, square);
+		
+		assertEquals(piece2, board.getPieceAt(square));
+	}
+	
 	
 
 }
