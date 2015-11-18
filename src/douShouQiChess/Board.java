@@ -76,6 +76,7 @@ public class Board {
 		Piece attackingPiece = getPieceAt(from);
 		Piece defendingPiece = getPieceAt(to);
 		
+		//Only try to capture if the attacking and defending pieces are different color.
 		if(attackingPiece.getColor() != defendingPiece.getColor()) {
 			//If the value of the attacking piece is higher or equal to the defending piece then it will be captured.
 			if(attackingPiece.getValue() >= defendingPiece.getValue()) {
