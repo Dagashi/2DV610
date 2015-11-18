@@ -76,10 +76,12 @@ public class Board {
 		Piece attackingPiece = getPieceAt(from);
 		Piece defendingPiece = getPieceAt(to);
 		
-		//If the value of the attacking piece is higher or equal to the defending piece then it will be captured.
-		if(attackingPiece.getValue() >= defendingPiece.getValue()) {
-			//TODO: record that the piece was captured.
-			movePiece(from, to);
+		if(attackingPiece.getColor() != defendingPiece.getColor()) {
+			//If the value of the attacking piece is higher or equal to the defending piece then it will be captured.
+			if(attackingPiece.getValue() >= defendingPiece.getValue()) {
+				//TODO: record that the piece was captured.
+				movePiece(from, to);
+			}
 		}
 	}
 
