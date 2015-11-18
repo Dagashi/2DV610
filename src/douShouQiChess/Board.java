@@ -2,6 +2,8 @@ package douShouQiChess;
 
 import java.util.HashMap;
 
+import douShouQiChess.Piece.Animal;
+
 public class Board {
 	public final HashMap<Square, Piece> positions;
 
@@ -78,8 +80,12 @@ public class Board {
 		
 		//Only try to capture if the attacking and defending pieces are different color.
 		if(attackingPiece.getColor() != defendingPiece.getColor()) {
+			if(attackingPiece.getAnimal() == Animal.RAT && defendingPiece.getAnimal() == Animal.ELEPHANT) {
+				//TODO: record that the piece was captured.
+				movePiece(from, to);
+			}
 			//If the value of the attacking piece is higher or equal to the defending piece then it will be captured.
-			if(attackingPiece.getValue() >= defendingPiece.getValue()) {
+			else if(attackingPiece.getValue() >= defendingPiece.getValue()) {
 				//TODO: record that the piece was captured.
 				movePiece(from, to);
 			}
