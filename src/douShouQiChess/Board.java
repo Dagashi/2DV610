@@ -40,24 +40,46 @@ public class Board {
 	}
 
 	/**
+	 * This method tries if we can move the piece or if we should capture etc.
+	 * @param Square from
+	 * @param Square to
+	 */
+	public void tryMovePiece(Square from, Square to) {
+		if(to.isValid()) {
+			if(!isSquareEmpty(to)) {
+				tryCapturePiece(from, to);
+			}
+			else {
+				movePiece(from, to);
+			}
+		}
+	}
+	
+	/**
 	 * This method moves the Piece from the Square "from" to the Square "to"
 	 * @param Square from
 	 * @param Square to
 	 */
-	public void movePiece(Square from, Square to) {
-		if(to.isValid()) {
-			if(!isSquareEmpty(to)) {
-				if(getPieceAt(from).getValue() >= getPieceAt(to).getValue()) {
-					Piece piece = getPieceAt(from);
-					removePieceAt(from);
-					setPieceAt(to, piece);
-				}
-			}
-			else {
-				Piece piece = getPieceAt(from);
-				removePieceAt(from);
-				setPieceAt(to, piece);
-			}
+	private void movePiece(Square from, Square to) {
+		Piece piece = getPieceAt(from);
+		removePieceAt(from);
+		setPieceAt(to, piece);
+	}
+	
+	
+	/**
+	 * This method contains the capturing-logic like which piece can capture who etc.
+	 * @param Square from
+	 * @param Square to
+	 */
+	private void tryCapturePiece(Square from, Square to) {
+		Piece attackingPiece = getPieceAt(from);
+		Piece defendingPiece = getPieceAt(to);
+		
+		//If the value of the attacking piece is higher or equal to the defending piece then it will be captured.
+		if(attackingPiece.getValue() >= defendingPiece.getValue()) {
+			//TODO: record that the piece was captured.
+			movePiece(from, to);
 		}
 	}
 

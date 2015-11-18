@@ -61,7 +61,7 @@ public class BoardTest {
 		Square to = from.stepUp();
 		
 		board.setPieceAt(from, piece);
-		board.movePiece(from, to);
+		board.tryMovePiece(from, to);
 		
 		assertEquals(piece, board.getPieceAt(to));
 		assertEquals(null, board.getPieceAt(from));
@@ -89,7 +89,7 @@ public class BoardTest {
 		Square otherSquare = square.stepUp();
 		board.setPieceAt(otherSquare, piece2);
 		
-		board.movePiece(square, otherSquare);
+		board.tryMovePiece(square, otherSquare);
 		
 		assertEquals(piece2, board.getPieceAt(otherSquare));
 	}
