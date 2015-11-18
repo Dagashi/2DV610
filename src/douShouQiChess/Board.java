@@ -107,6 +107,9 @@ public class Board {
 					capturePiece(from, to);
 				}
 			}
+			else if(to.getType() == Type.TRAP && to.getOwner().toString() == attackingPiece.getColor().toString()) {
+				capturePiece(from, to);
+			}
 			//If the value of the attacking piece is higher or equal to the defending piece then it will be captured.
 			else if(attackingPiece.getValue() >= defendingPiece.getValue()) {
 				capturePiece(from, to);
