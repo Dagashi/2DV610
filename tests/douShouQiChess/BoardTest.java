@@ -139,6 +139,19 @@ public class BoardTest {
 		assertEquals(piece, board.getPieceAt(square));
 	}
 	
+	@Test
+	public void ShouldFailIfNonRatPieceIsMovedToWaterSquare() {
+		Piece piece = new Piece(Animal.WOLF,Color.DARK);
+		Square from = new Square(4, 4);
+		Square to = from.stepLeft();
+		
+		board.setPieceAt(from, piece);
+		board.tryMovePiece(from, to);
+		
+		assertEquals(null, board.getPieceAt(to));
+		assertEquals(piece, board.getPieceAt(from));
+	}
+	
 	
 
 }
