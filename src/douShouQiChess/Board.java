@@ -49,13 +49,17 @@ public class Board {
 	 */
 	public void tryMovePiece(Square from, Square to) {
 		if(to.isValid()) {
+			//If a RAT is trying to move to a WATER-Square then move it as normal.
 			if(to.getType() == Type.WATER && getPieceAt(from).getAnimal() == Animal.RAT) {
 				movePiece(from, to);
 			}
+			//Check if the Square is not a WATER-Square.
 			else if(to.getType() != Type.WATER) {
+				//If the square contains another Piece then try to capture it.
 				if(!isSquareEmpty(to)) {
 					tryCapturePiece(from, to);
 				}
+				//Otherwise move it normally.
 				else {
 					movePiece(from, to);
 				}
