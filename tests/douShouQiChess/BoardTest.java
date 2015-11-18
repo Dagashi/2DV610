@@ -165,6 +165,22 @@ public class BoardTest {
 		assertEquals(piece, board.getPieceAt(from));
 	}
 	
+	@Test
+	public void ShouldFailIfAPieceIsNotCapturedWhileOnOpponentsTrap() {
+		Piece piece = new Piece(Animal.WOLF,Color.LIGHT);
+		Square square = new Square(9, 3);
+		board.setPieceAt(square, piece);
+		
+		Piece piece2 = new Piece(Animal.CAT,Color.DARK);
+		Square otherSquare = new Square(9, 2);
+		board.setPieceAt(otherSquare, piece2);
+		
+		board.tryMovePiece(otherSquare, square);
+		
+		assertEquals(piece2, board.getPieceAt(square));
+		assertEquals(null, board.getPieceAt(otherSquare));
+	}
+	
 	
 
 }
