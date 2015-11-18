@@ -85,13 +85,28 @@ public class BoardTest {
 		Square square = new Square(2, 3);
 		board.setPieceAt(square, piece);
 		
-		Piece piece2 = new Piece(Animal.CAT,Color.DARK);
+		Piece piece2 = new Piece(Animal.CAT,Color.LIGHT);
 		Square otherSquare = square.stepUp();
 		board.setPieceAt(otherSquare, piece2);
 		
 		board.tryMovePiece(square, otherSquare);
 		
 		assertEquals(piece2, board.getPieceAt(otherSquare));
+	}
+	
+	@Test
+	public void ShouldFailIfAPieceCapturesAPieceWithSameColor() {
+		Piece piece = new Piece(Animal.RAT,Color.DARK);
+		Square square = new Square(2, 3);
+		board.setPieceAt(square, piece);
+		
+		Piece piece2 = new Piece(Animal.CAT,Color.DARK);
+		Square otherSquare = square.stepUp();
+		board.setPieceAt(otherSquare, piece2);
+		
+		board.tryMovePiece(otherSquare, square);
+		
+		assertEquals(piece, board.getPieceAt(square));
 	}
 	
 	
