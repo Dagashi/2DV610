@@ -3,6 +3,7 @@ package douShouQiChess;
 import java.util.HashMap;
 
 import douShouQiChess.Piece.Animal;
+import douShouQiChess.Square.Type;
 
 public class Board {
 	public final HashMap<Square, Piece> positions;
@@ -83,7 +84,9 @@ public class Board {
 			//If a RAT attacks an ELEPHANT it captures it since according to legend:
 			//"A RAT can go into the ELEPHANTS ear when it is asleep and eats it's brain"
 			if(attackingPiece.getAnimal() == Animal.RAT && defendingPiece.getAnimal() == Animal.ELEPHANT) {
-				capturePiece(from, to);
+				if(from.getType() != Type.WATER) {
+					capturePiece(from, to);
+				}
 			}
 			//If the value of the attacking piece is higher or equal to the defending piece then it will be captured.
 			else if(attackingPiece.getValue() >= defendingPiece.getValue()) {
