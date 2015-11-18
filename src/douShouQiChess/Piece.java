@@ -9,7 +9,11 @@ public class Piece {
 		LEOPARD, TIGER, LION, ELEPHANT 
 	}
 	
-	public Piece(Animal animal) {
+	public enum Color {
+		DARK, LIGHT
+	}
+	
+	public Piece(Animal animal, Color color) {
 		this.animal = animal;
 		this.value = this.assignValue();
 	}
@@ -21,10 +25,15 @@ public class Piece {
 	public Animal getAnimal() {
 		return animal;
 	}
+	
+	public Color getColor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	/**
 	 * This method returns the correct value of this piece on initialization. 
-	 * @return Int value
+	 * @return integer value
 	 */
 	private int assignValue() {
 		switch (this.animal) {

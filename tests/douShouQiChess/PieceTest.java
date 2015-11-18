@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import douShouQiChess.Piece.Animal;
+import douShouQiChess.Piece.Color;
 
 public class PieceTest {
 
@@ -16,8 +17,14 @@ public class PieceTest {
 
 	@Test
 	public void ShouldFailIfThePieceHasTheWrongValue() {
-		Piece piece = new Piece(Animal.RAT);
+		Piece piece = new Piece(Animal.RAT,Color.DARK);
 		assertEquals(1, piece.getValue());
+	}
+	
+	@Test
+	public void ShouldFailIfThePieceHasTheWrongColor() {
+		Piece piece = new Piece(Animal.RAT,Color.DARK);
+		assertEquals(Color.DARK, piece.getColor());
 	}
 
 }

@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import douShouQiChess.Piece.Animal;
+import douShouQiChess.Piece.Color;
 
 public class BoardTest {
 	private Board board;
@@ -17,7 +18,7 @@ public class BoardTest {
 
 	@Test
 	public void ShouldFailIfThePieceIsNotAddedToBoard() {
-		Piece piece = new Piece(Animal.RAT);
+		Piece piece = new Piece(Animal.RAT, Color.DARK);
 		Square square = new Square(2, 3);
 		
 		board.setPieceAt(square, piece);
@@ -26,7 +27,7 @@ public class BoardTest {
 	
 	@Test
 	public void ShouldFailIfTheSquareIsNotAValidPosition() {
-		Piece piece = new Piece(Animal.RAT);
+		Piece piece = new Piece(Animal.RAT,Color.DARK);
 		Square square = new Square(12, 3);
 		
 		board.setPieceAt(square, piece);
@@ -35,7 +36,7 @@ public class BoardTest {
 	
 	@Test
 	public void ShouldFailIfTheSquareDoesNotReturnTheRightPiece() {
-		Piece piece = new Piece(Animal.RAT);
+		Piece piece = new Piece(Animal.RAT,Color.DARK);
 		Square square = new Square(2, 3);
 		
 		board.setPieceAt(square, piece);
@@ -44,7 +45,7 @@ public class BoardTest {
 	
 	@Test
 	public void ShouldFailIfThePieceIsNotRemoved() {
-		Piece piece = new Piece(Animal.RAT);
+		Piece piece = new Piece(Animal.RAT,Color.DARK);
 		Square square = new Square(2, 3);
 		
 		board.setPieceAt(square, piece);
@@ -55,7 +56,7 @@ public class BoardTest {
 	
 	@Test
 	public void ShouldFailIfThePieceIsNotMoved() {
-		Piece piece = new Piece(Animal.RAT);
+		Piece piece = new Piece(Animal.RAT,Color.DARK);
 		Square from = new Square(2, 3);
 		Square to = from.stepUp();
 		
@@ -68,7 +69,7 @@ public class BoardTest {
 	
 	@Test
 	public void ShouldFailIfTheSquareIsFree() {
-		Piece piece = new Piece(Animal.RAT);
+		Piece piece = new Piece(Animal.RAT,Color.DARK);
 		Square square = new Square(2, 3);
 		Square otherSquare = square.stepUp();
 		
