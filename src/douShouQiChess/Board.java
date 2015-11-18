@@ -84,6 +84,7 @@ public class Board {
 			//If a RAT attacks an ELEPHANT it captures it since according to legend:
 			//"A RAT can go into the ELEPHANTS ear when it is asleep and eats it's brain"
 			if(attackingPiece.getAnimal() == Animal.RAT && defendingPiece.getAnimal() == Animal.ELEPHANT) {
+				//A RAT cannot capture ELEPHANT from WATER.
 				if(from.getType() != Type.WATER) {
 					capturePiece(from, to);
 				}
