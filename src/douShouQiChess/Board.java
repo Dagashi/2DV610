@@ -49,11 +49,16 @@ public class Board {
 	 */
 	public void tryMovePiece(Square from, Square to) {
 		if(to.isValid()) {
-			if(!isSquareEmpty(to)) {
-				tryCapturePiece(from, to);
-			}
-			else {
+			if(to.getType() == Type.WATER && getPieceAt(from).getAnimal() == Animal.RAT) {
 				movePiece(from, to);
+			}
+			else if(to.getType() != Type.WATER) {
+				if(!isSquareEmpty(to)) {
+					tryCapturePiece(from, to);
+				}
+				else {
+					movePiece(from, to);
+				}
 			}
 		}
 	}
