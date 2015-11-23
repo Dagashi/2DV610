@@ -181,6 +181,22 @@ public class BoardTest {
 		assertEquals(null, board.getPieceAt(otherSquare));
 	}
 	
+	@Test
+	public void ShouldFailIfTigerPieceIsNotMovedToOthersideOfTheWater() {
+		Piece piece = new Piece(Animal.TIGER,Color.DARK);
+		Square from = new Square(4, 4);
+		Square to = from.stepLeft();
+		
+		board.setPieceAt(from, piece);
+		
+		board.tryMovePiece(from, to);
+		
+		Square otherSideOfWater = new Square(4,1);
+		Square position = board.positions.entrySet().iterator().next().getKey();
+		
+		assertTrue(position.equals(otherSideOfWater));
+		assertEquals(null, board.getPieceAt(from));
+	}
 	
 
 }
