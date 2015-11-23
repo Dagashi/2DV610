@@ -38,7 +38,7 @@ public class GameTest {
 	}
 	
 	@Test
-	public void test() {
+	public void ShouldFailIfTheMessageInStartIsNotWelcomeMessage() {
 		PrintStream out = mock(PrintStream.class);
 		System.setOut(out);
 		
