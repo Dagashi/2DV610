@@ -49,7 +49,7 @@ public class GameTest {
 	}
 	
 	@Test
-	public void test() {
+	public void ShouldFailIfStartDoesntCallToNextTurnOnce() {
 		Game game = new Game();
 		Game spy = spy(game);
 		spy.start();
