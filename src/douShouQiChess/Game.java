@@ -18,7 +18,8 @@ public class Game {
 	 */
 	public void start() {
 		initialize(new Board());
-		
+		players.put(Color.LIGHT, new Player());
+		players.put(Color.DARK, new Player());
 	}
 	
 	/**
