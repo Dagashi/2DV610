@@ -58,7 +58,7 @@ public class Game {
 	}
 
 	public void nextTurn() {
-		// TODO Auto-generated method stub
+		board.printBoard();
 	}
 	
 }
