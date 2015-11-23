@@ -167,7 +167,7 @@ public class Board {
 		//If they try to jump over water upwards.
 		else if(to.equals(from.stepUp())) {
 			Square jumpTo = new Square(3, from.getColumn());
-			
+			//Check if there is a piece in the water when jumping.
 			if(isSquareEmpty(to) && isSquareEmpty(to.stepUp()) && isSquareEmpty(to.stepUp().stepUp())) {
 				if(!isSquareEmpty(jumpTo)) {
 					tryCapturePiece(from, jumpTo);
@@ -180,7 +180,7 @@ public class Board {
 		//If they try to jump over water downwards.
 		else if(to.equals(from.stepDown())) {
 			Square jumpTo = new Square(7, from.getColumn());
-			
+			//Check if there is a piece in the water when jumping.
 			if(isSquareEmpty(to) && isSquareEmpty(to.stepDown()) && isSquareEmpty(to.stepDown().stepDown())) {
 				if(!isSquareEmpty(jumpTo)) {
 					tryCapturePiece(from, jumpTo);
