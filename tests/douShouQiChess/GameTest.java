@@ -47,5 +47,13 @@ public class GameTest {
 		
 		verify(out).println(startsWith("Welcome"));
 	}
+	
+	@Test
+	public void test() {
+		Game game = new Game();
+		Game spy = spy(game);
+		spy.start();
+		verify(spy, times(1)).nextTurn();
+	}
 
 }

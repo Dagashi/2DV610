@@ -54,5 +54,9 @@ public class Game {
 		board.setPieceAt(new Square(7,3), new Piece(Animal.WOLF,Color.DARK));
 		board.setPieceAt(new Square(7,1), new Piece(Animal.ELEPHANT,Color.DARK));
 	}
+
+	public void nextTurn() {
+		// TODO Auto-generated method stub
+	}
 	
 }
