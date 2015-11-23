@@ -13,7 +13,7 @@ public class GameTest {
 	}
 
 	@Test
-	public void test() {
+	public void ShouldFailIfTheInitMethodDoesNotSetOutSixteenPieceOnTheBoard() {
 		Board mockedBoard = mock(Board.class);
 		Game game = new Game();
 		game.initialize(mockedBoard);
