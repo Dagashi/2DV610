@@ -263,5 +263,21 @@ public class BoardTest {
 		assertEquals(piece, board.getPieceAt(from));
 	}
 	
+	@Test
+	public void ShouldFailIfPieceJumpOverRatInWaterToTheRight() {
+		Piece piece = new Piece(Animal.TIGER,Color.LIGHT);
+		Square from = new Square(4, 4);
+		Square to = from.stepRight();
+		board.setPieceAt(from, piece);
+		
+		Piece rat = new Piece(Animal.RAT, Color.DARK);
+		Square inWater = new Square(4,6);
+		board.setPieceAt(inWater, rat);
+		
+		board.tryMovePiece(from, to);
+		
+		assertEquals(piece, board.getPieceAt(from));
+	}
+	
 
 }
