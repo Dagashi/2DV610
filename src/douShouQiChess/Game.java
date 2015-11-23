@@ -7,8 +7,7 @@ public class Game {
 	Board board;
 	
 	public void start() {
-		// TODO Auto-generated method stub
-		
+		initialize(new Board());
 	}
 	
 	/**
