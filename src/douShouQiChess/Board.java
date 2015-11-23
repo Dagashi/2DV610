@@ -53,49 +53,9 @@ public class Board {
 			if(to.getType() == Type.WATER && getPieceAt(from).getAnimal() == Animal.RAT) {
 				movePiece(from, to);
 			}
+			//Check if a TIGER moves to water and wants to jump it.
 			else if(to.getType() == Type.WATER && getPieceAt(from).getAnimal() == Animal.TIGER) {
-				
-				if(to.equals(from.stepLeft())) {
-					Square jumpTo = new Square(from.getRow(), 1);
-					
-					if(!isSquareEmpty(jumpTo)) {
-						tryCapturePiece(from, jumpTo);
-					}
-					else {
-						movePiece(from, jumpTo);
-					}
-				}
-				else if(to.equals(from.stepRight())) {
-					Square jumpTo = new Square(from.getRow(), 7);
-					
-					if(!isSquareEmpty(jumpTo)) {
-						tryCapturePiece(from, jumpTo);
-					}
-					else {
-						movePiece(from, jumpTo);
-					}
-				}
-				else if(to.equals(from.stepUp())) {
-					Square jumpTo = new Square(3, from.getColumn());
-					
-					if(!isSquareEmpty(jumpTo)) {
-						tryCapturePiece(from, jumpTo);
-					}
-					else {
-						movePiece(from, jumpTo);
-					}
-				}
-				else if(to.equals(from.stepDown())) {
-					Square jumpTo = new Square(7, from.getColumn());
-					
-					if(!isSquareEmpty(jumpTo)) {
-						tryCapturePiece(from, jumpTo);
-					}
-					else {
-						movePiece(from, jumpTo);
-					}
-				}
-			
+				tryJumpWater(from, to);
 			}
 			//Check if the Square is not a WATER-Square.
 			else if(to.getType() != Type.WATER) {
@@ -170,6 +130,58 @@ public class Board {
 	private void capturePiece(Square from, Square to) {
 		//TODO: record that the piece was captured.
 		movePiece(from, to);
+	}
+	
+	/**
+	 * This method contains logic for TIGER or LION jumping the water.
+	 * @param Square from
+	 * @param Square to
+	 */
+	public void tryJumpWater(Square from, Square to) {
+		//If they try to jump over water to the left.
+		if(to.equals(from.stepLeft())) {
+			Square jumpTo = new Square(from.getRow(), 1);
+			
+			if(!isSquareEmpty(jumpTo)) {
+				tryCapturePiece(from, jumpTo);
+			}
+			else {
+				movePiece(from, jumpTo);
+			}
+		}
+		//If they try to jump over water to the right.
+		else if(to.equals(from.stepRight())) {
+			Square jumpTo = new Square(from.getRow(), 7);
+			
+			if(!isSquareEmpty(jumpTo)) {
+				tryCapturePiece(from, jumpTo);
+			}
+			else {
+				movePiece(from, jumpTo);
+			}
+		}
+		//If they try to jump over water upwards.
+		else if(to.equals(from.stepUp())) {
+			Square jumpTo = new Square(3, from.getColumn());
+			
+			if(!isSquareEmpty(jumpTo)) {
+				tryCapturePiece(from, jumpTo);
+			}
+			else {
+				movePiece(from, jumpTo);
+			}
+		}
+		//If they try to jump over water downwards.
+		else if(to.equals(from.stepDown())) {
+			Square jumpTo = new Square(7, from.getColumn());
+			
+			if(!isSquareEmpty(jumpTo)) {
+				tryCapturePiece(from, jumpTo);
+			}
+			else {
+				movePiece(from, jumpTo);
+			}
+		}
 	}
 
 	/**
