@@ -189,5 +189,12 @@ public class Square {
 		}
 		return true;
 	}
+	
+	@Override
+	public int hashCode() {
+		int result = 13 * 1 + column;
+		result = 13 * result + row;
+		return result;
+	}
 
 }

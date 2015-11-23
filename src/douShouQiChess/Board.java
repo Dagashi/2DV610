@@ -179,11 +179,13 @@ public class Board {
 		else if(to.equals(from.stepDown())) {
 			Square jumpTo = new Square(7, from.getColumn());
 			
-			if(!isSquareEmpty(jumpTo)) {
-				tryCapturePiece(from, jumpTo);
-			}
-			else {
-				movePiece(from, jumpTo);
+			if(isSquareEmpty(to) && isSquareEmpty(to.stepDown()) && isSquareEmpty(to.stepDown().stepDown())) {
+				if(!isSquareEmpty(jumpTo)) {
+					tryCapturePiece(from, jumpTo);
+				}
+				else {
+					movePiece(from, jumpTo);
+				}
 			}
 		}
 	}
