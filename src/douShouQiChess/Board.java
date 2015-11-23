@@ -158,7 +158,7 @@ public class Board {
 		//If they try to jump over water to the right.
 		else if(to.equals(from.stepRight())) {
 			Square jumpTo = new Square(from.getRow(), 7);
-			
+			//Check if there is a piece in the water when jumping.
 			if(isSquareEmpty(to) && isSquareEmpty(to.stepRight())) {
 				if(!isSquareEmpty(jumpTo)) {
 					tryCapturePiece(from, jumpTo);
