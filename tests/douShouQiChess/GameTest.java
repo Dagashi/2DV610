@@ -3,6 +3,8 @@ package douShouQiChess;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
+import java.io.PrintStream;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -33,6 +35,17 @@ public class GameTest {
 		Game game = new Game();
 		game.start();
 		assertEquals(2, game.players.size());
+	}
+	
+	@Test
+	public void test() {
+		PrintStream out = mock(PrintStream.class);
+		System.setOut(out);
+		
+		Game game = new Game();
+		game.start();
+		
+		verify(out).println(startsWith("Welcome"));
 	}
 
 }
