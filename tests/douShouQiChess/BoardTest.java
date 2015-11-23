@@ -1,6 +1,10 @@
 package douShouQiChess;
 
 import static org.junit.Assert.*;
+import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.*;
+
+import java.io.PrintStream;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -277,6 +281,20 @@ public class BoardTest {
 		board.tryMovePiece(from, to);
 		
 		assertEquals(piece, board.getPieceAt(from));
+	}
+	
+	@Test
+	public void test() {
+		PrintStream out = mock(PrintStream.class);
+		System.setOut(out);
+		
+		Piece piece = new Piece(Animal.LION,Color.DARK);
+		Square position = new Square(9, 7);
+		board.setPieceAt(position, piece);
+		
+		board.printBoard();
+		
+		verify(out).println(endsWith("| Li |\n  ----------------------------------\n"));
 	}
 	
 

@@ -215,4 +215,8 @@ public class Board {
 		}
 	}
 
+	public void printBoard() {
+		// TODO Auto-generated method stub
+	}
+
 }
