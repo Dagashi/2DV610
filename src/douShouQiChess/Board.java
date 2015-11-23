@@ -53,6 +53,50 @@ public class Board {
 			if(to.getType() == Type.WATER && getPieceAt(from).getAnimal() == Animal.RAT) {
 				movePiece(from, to);
 			}
+			else if(to.getType() == Type.WATER && getPieceAt(from).getAnimal() == Animal.TIGER) {
+				
+				if(to.equals(from.stepLeft())) {
+					Square jumpTo = new Square(from.getRow(), 1);
+					
+					if(!isSquareEmpty(jumpTo)) {
+						tryCapturePiece(from, jumpTo);
+					}
+					else {
+						movePiece(from, jumpTo);
+					}
+				}
+				else if(to.equals(from.stepRight())) {
+					Square jumpTo = new Square(from.getRow(), 7);
+					
+					if(!isSquareEmpty(jumpTo)) {
+						tryCapturePiece(from, jumpTo);
+					}
+					else {
+						movePiece(from, jumpTo);
+					}
+				}
+				else if(to.equals(from.stepUp())) {
+					Square jumpTo = new Square(3, from.getColumn());
+					
+					if(!isSquareEmpty(jumpTo)) {
+						tryCapturePiece(from, jumpTo);
+					}
+					else {
+						movePiece(from, jumpTo);
+					}
+				}
+				else if(to.equals(from.stepDown())) {
+					Square jumpTo = new Square(7, from.getColumn());
+					
+					if(!isSquareEmpty(jumpTo)) {
+						tryCapturePiece(from, jumpTo);
+					}
+					else {
+						movePiece(from, jumpTo);
+					}
+				}
+			
+			}
 			//Check if the Square is not a WATER-Square.
 			else if(to.getType() != Type.WATER) {
 				//If the square is a DEN, then check colors, if it can move there for victory or illegal move.
