@@ -216,7 +216,55 @@ public class Board {
 	}
 
 	public void printBoard() {
-		// TODO Auto-generated method stub
+		String boardString = "    1    2    3    4    5    6    7    \n  -----------------------------------\n";
+		for (int row = 1; row < 10; row++) {
+			boardString += row+"|";
+			for (int col = 1; col < 8; col++) {
+				Square tmpSquare = new Square(row, col);
+				if(!isSquareEmpty(tmpSquare)) {
+					Piece tmpPiece = getPieceAt(tmpSquare);
+					if(tmpPiece.getAnimal() == Animal.RAT) {
+						boardString += " R  |";
+					}
+					else if(tmpPiece.getAnimal() == Animal.CAT) {
+						boardString += " C  |";
+					}
+					else if(tmpPiece.getAnimal() == Animal.WOLF) {
+						boardString += " W  |";
+					}
+					else if(tmpPiece.getAnimal() == Animal.DOG) {
+						boardString += " D  |";
+					}
+					else if(tmpPiece.getAnimal() == Animal.LEOPARD) {
+						boardString += " Le |";
+					}
+					else if(tmpPiece.getAnimal() == Animal.TIGER) {
+						boardString += " T  |";
+					}
+					else if(tmpPiece.getAnimal() == Animal.LION) {
+						boardString += " Li |";
+					}
+					else if(tmpPiece.getAnimal() == Animal.ELEPHANT) {
+						boardString += " E  |";
+					}
+				}
+				else if(tmpSquare.getType() == Type.DEN) {
+					boardString += " DE |";
+				}
+				else if(tmpSquare.getType() == Type.TRAP) {
+					boardString += " TR |";
+				}
+				else if(tmpSquare.getType() == Type.WATER) {
+					boardString += " \u007E\u007E |";
+				}
+				else {
+					boardString += "    |";
+				}
+				
+			}
+			boardString += "\n  ----------------------------------\n";
+		}
+		System.out.println(boardString);
 	}
 
 }
