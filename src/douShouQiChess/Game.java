@@ -1,16 +1,24 @@
 package douShouQiChess;
 
+import java.util.HashMap;
+
 import douShouQiChess.Piece.Animal;
 import douShouQiChess.Piece.Color;
 
 public class Game {
-	Board board;
+	private Board board;
+	public HashMap<Color, Player> players;
+	
+	public Game() {
+		players = new HashMap<Color, Player>();
+	}
 	
 	/**
 	 * This method starts a new game of Dou Shou Qi chess.
 	 */
 	public void start() {
 		initialize(new Board());
+		
 	}
 	
 	/**

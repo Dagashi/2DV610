@@ -27,5 +27,12 @@ public class GameTest {
 		spy.start();
 		verify(spy, times(1)).initialize(anyObject());
 	}
+	
+	@Test
+	public void test() {
+		Game game = new Game();
+		game.start();
+		assertEquals(2, game.players.size());
+	}
 
 }
