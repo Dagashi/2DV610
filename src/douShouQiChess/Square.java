@@ -124,7 +124,7 @@ public class Square {
 	 * @return Square || null.
 	 */
 	public Square stepUp() {
-		Square tmpSquare = new Square(this.row + 1, this.column);
+		Square tmpSquare = new Square(this.row - 1, this.column);
 		
 		if(!tmpSquare.isValid()) {
 			return null;
@@ -139,7 +139,7 @@ public class Square {
 	 * @return Square || null.
 	 */
 	public Square stepDown() {
-		Square tmpSquare = new Square(this.row - 1, this.column);
+		Square tmpSquare = new Square(this.row + 1, this.column);
 		
 		if(!tmpSquare.isValid()) {
 			return null;

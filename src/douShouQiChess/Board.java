@@ -57,6 +57,10 @@ public class Board {
 			else if(to.getType() == Type.WATER && getPieceAt(from).getAnimal() == Animal.TIGER) {
 				tryJumpWater(from, to);
 			}
+			//Check if a LION moves to water and wants to jump it.
+			else if(to.getType() == Type.WATER && getPieceAt(from).getAnimal() == Animal.LION) {
+				tryJumpWater(from, to);
+			}
 			//Check if the Square is not a WATER-Square.
 			else if(to.getType() != Type.WATER) {
 				//If the square is a DEN, then check colors, if it can move there for victory or illegal move.
