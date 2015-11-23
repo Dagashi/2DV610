@@ -19,5 +19,13 @@ public class GameTest {
 		game.initialize(mockedBoard);
 		verify(mockedBoard, times(16)).setPieceAt(anyObject(), anyObject());
 	}
+	
+	@Test
+	public void test() {
+		Game game = new Game();
+		Game spy = spy(game);
+		spy.start();
+		verify(spy, times(1)).initialize(anyObject());
+	}
 
 }

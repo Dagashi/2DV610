@@ -6,6 +6,11 @@ import douShouQiChess.Piece.Color;
 public class Game {
 	Board board;
 	
+	public void start() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	/**
 	 * This method initializes a board to start the game.
 	 * @param Board b
