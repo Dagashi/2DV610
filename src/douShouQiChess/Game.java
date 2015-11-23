@@ -25,6 +25,8 @@ public class Game {
 		players.put(Color.DARK, new Player());
 		
 		System.out.println("Welcome to Dou Shou Qi Chess!");
+		
+		nextTurn();
 	}
 	
 	/**
