@@ -284,7 +284,7 @@ public class BoardTest {
 	}
 	
 	@Test
-	public void test() {
+	public void ShouldFailIfLastSquareInPrintBoardIsNotTheLion() {
 		PrintStream out = mock(PrintStream.class);
 		System.setOut(out);
 		

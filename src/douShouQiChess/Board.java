@@ -215,6 +215,9 @@ public class Board {
 		}
 	}
 
+	/**
+	 * This method prints the board to console with all the pieces in the right position.
+	 */
 	public void printBoard() {
 		String boardString = "    1    2    3    4    5    6    7    \n  -----------------------------------\n";
 		for (int row = 1; row < 10; row++) {
