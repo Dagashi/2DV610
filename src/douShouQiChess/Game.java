@@ -23,6 +23,8 @@ public class Game {
 		initialize(new Board());
 		players.put(Color.LIGHT, new Player());
 		players.put(Color.DARK, new Player());
+		
+		System.out.println("Welcome to Dou Shou Qi Chess!");
 	}
 	
 	/**
