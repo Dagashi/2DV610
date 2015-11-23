@@ -21,7 +21,7 @@ public class GameTest {
 	}
 	
 	@Test
-	public void test() {
+	public void ShouldFailIfStartDoesNotExecuteInitializeMethodOnce() {
 		Game game = new Game();
 		Game spy = spy(game);
 		spy.start();

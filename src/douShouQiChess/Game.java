@@ -6,6 +6,9 @@ import douShouQiChess.Piece.Color;
 public class Game {
 	Board board;
 	
+	/**
+	 * This method starts a new game of Dou Shou Qi chess.
+	 */
 	public void start() {
 		initialize(new Board());
 	}
