@@ -216,7 +216,7 @@ public class BoardTest {
 	}
 	
 	@Test
-	public void ShouldFailIfPieceJumpOverRatInWater() {
+	public void ShouldFailIfPieceJumpOverRatInWaterDownwards() {
 		Piece piece = new Piece(Animal.TIGER,Color.LIGHT);
 		Square from = new Square(3, 2);
 		Square to = from.stepDown();
