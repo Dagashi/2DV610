@@ -29,7 +29,7 @@ public class GameTest {
 	}
 	
 	@Test
-	public void test() {
+	public void ShouldFailIfStartDontAddTwoPlayers() {
 		Game game = new Game();
 		game.start();
 		assertEquals(2, game.players.size());

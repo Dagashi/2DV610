@@ -9,6 +9,9 @@ public class Game {
 	private Board board;
 	public HashMap<Color, Player> players;
 	
+	/**
+	 * Constructor
+	 */
 	public Game() {
 		players = new HashMap<Color, Player>();
 	}
