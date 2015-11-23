@@ -56,8 +56,12 @@ public class Game {
 		board.setPieceAt(new Square(7,3), new Piece(Animal.WOLF,Color.DARK));
 		board.setPieceAt(new Square(7,1), new Piece(Animal.ELEPHANT,Color.DARK));
 	}
-
+	
+	/**
+	 * This method contains the logic for each turn.
+	 */
 	public void nextTurn() {
+		//Start the turn by printing the board.
 		board.printBoard();
 	}
 	
