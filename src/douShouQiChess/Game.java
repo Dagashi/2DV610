@@ -8,6 +8,7 @@ import douShouQiChess.Piece.Color;
 public class Game {
 	private Board board;
 	public HashMap<Color, Player> players;
+	private Color whosTurn;
 	
 	/**
 	 * Constructor
@@ -23,6 +24,7 @@ public class Game {
 		initialize(new Board());
 		players.put(Color.LIGHT, new Player());
 		players.put(Color.DARK, new Player());
+		whosTurn = Color.DARK;
 		
 		System.out.println("Welcome to Dou Shou Qi Chess!");
 		
@@ -63,6 +65,8 @@ public class Game {
 	public void nextTurn() {
 		//Start the turn by printing the board.
 		board.printBoard();
+		
+		System.out.println(whosTurn.toString()+" Players' turn. Enter square you want to move from: ");
 	}
 	
 }
