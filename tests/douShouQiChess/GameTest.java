@@ -95,5 +95,19 @@ public class GameTest {
 		
 		verify(out).println(contains("That is not your piece."));
 	}
+	
+	@Test
+	public void test() {
+		PrintStream out = mock(PrintStream.class);
+		System.setOut(out);
+		
+		ByteArrayInputStream in = new ByteArrayInputStream("8,1".getBytes());
+		System.setIn(in);
+		
+		Game game = new Game();
+		game.start();
+		
+		verify(out).println(contains("There is no piece at that square."));
+	}
 
 }
