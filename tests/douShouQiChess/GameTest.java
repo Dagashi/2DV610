@@ -69,14 +69,14 @@ public class GameTest {
 	}
 	
 	@Test
-	public void test() {
+	public void ShouldFailIfTheOutputDoesntShowThatItIsDarkPlayersTurnAtStart() {
 		PrintStream out = mock(PrintStream.class);
 		System.setOut(out);
 		
 		Game game = new Game();
 		game.start();
 		
-		verify(out).println(endsWith("DARK Players' turn. Enter square you want to move from: "));
+		verify(out).println(contains("DARK Players' turn. Enter square you want to move from: "));
 	}
 
 }
