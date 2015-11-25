@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.*;
 
+import java.io.ByteArrayInputStream;
 import java.io.PrintStream;
 
 import org.junit.Before;
@@ -13,6 +14,8 @@ public class GameTest {
 
 	@Before
 	public void setUp() throws Exception {
+		ByteArrayInputStream in = new ByteArrayInputStream("7,1".getBytes());
+		System.setIn(in);
 	}
 
 	@Test
@@ -77,6 +80,20 @@ public class GameTest {
 		game.start();
 		
 		verify(out).println(contains("DARK Players' turn. Enter square you want to move from: "));
+	}
+	
+	@Test
+	public void test() {
+		PrintStream out = mock(PrintStream.class);
+		System.setOut(out);
+		
+		ByteArrayInputStream in = new ByteArrayInputStream("1,1".getBytes());
+		System.setIn(in);
+		
+		Game game = new Game();
+		game.start();
+		
+		verify(out).println(contains("That is not your piece."));
 	}
 
 }
