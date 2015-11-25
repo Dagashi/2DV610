@@ -14,7 +14,7 @@ public class GameTest {
 
 	@Before
 	public void setUp() throws Exception {
-		ByteArrayInputStream in = new ByteArrayInputStream("7,1".getBytes());
+		ByteArrayInputStream in = new ByteArrayInputStream("7,1,up".getBytes());
 		System.setIn(in);
 	}
 
@@ -108,6 +108,20 @@ public class GameTest {
 		game.start();
 		
 		verify(out).println(contains("There is no piece at that square."));
+	}
+	
+	@Test
+	public void test() {
+		PrintStream out = mock(PrintStream.class);
+		System.setOut(out);
+		
+		ByteArrayInputStream in = new ByteArrayInputStream("7,1,up".getBytes());
+		System.setIn(in);
+		
+		Game game = new Game();
+		game.start();
+		
+		verify(out).println(contains("Moved DARK ELEPHANT upwards to square 6,1."));
 	}
 
 }
