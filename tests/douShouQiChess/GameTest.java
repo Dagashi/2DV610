@@ -83,7 +83,7 @@ public class GameTest {
 	}
 	
 	@Test
-	public void test() {
+	public void ShouldFailIfTheSystemDoesntTellUsItIsNotOurPiece() {
 		PrintStream out = mock(PrintStream.class);
 		System.setOut(out);
 		
