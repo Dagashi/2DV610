@@ -47,40 +47,55 @@ public class Board {
 	 * @param Square from
 	 * @param Square to
 	 */
-	public void tryMovePiece(Square from, Square to) {
+	public boolean tryMovePiece(Square from, Square to) {
 		if(to.isValid()) {
 			//If a RAT is trying to move to a WATER-Square then move it as normal.
 			if(to.getType() == Type.WATER && getPieceAt(from).getAnimal() == Animal.RAT) {
-				movePiece(from, to);
+				boolean success = movePiece(from, to);
+				return success;
 			}
 			//Check if a TIGER moves to water and wants to jump it.
 			else if(to.getType() == Type.WATER && getPieceAt(from).getAnimal() == Animal.TIGER) {
-				tryJumpWater(from, to);
+				boolean success = tryJumpWater(from, to);
+				return success;
 			}
 			//Check if a LION moves to water and wants to jump it.
 			else if(to.getType() == Type.WATER && getPieceAt(from).getAnimal() == Animal.LION) {
-				tryJumpWater(from, to);
+				boolean success = tryJumpWater(from, to);
+				return success;
 			}
 			//Check if the Square is not a WATER-Square.
 			else if(to.getType() != Type.WATER) {
 				//If the square is a DEN, then check colors, if it can move there for victory or illegal move.
 				if(to.getType() == Type.DEN) {
 					if(to.getOwner().toString() != getPieceAt(from).getColor().toString()) {
-						movePiece(from, to);
+						boolean success = movePiece(from, to);
+						return success;
 						//TODO: Register Victory!
+					}
+					else {
+						return false;
 					}
 				}
 				else {
 					//If the square contains another Piece then try to capture it.
 					if(!isSquareEmpty(to)) {
-						tryCapturePiece(from, to);
+						boolean success = tryCapturePiece(from, to);
+						return success;
 					}
 					//Otherwise move it normally.
 					else {
-						movePiece(from, to);
+						boolean success = movePiece(from, to);
+						return success;
 					}
 				}
 			}
+			else {
+				return false;
+			}
+		}
+		else {
+			return false;
 		}
 	}
 	
@@ -88,11 +103,18 @@ public class Board {
 	 * This method moves the Piece from the Square "from" to the Square "to"
 	 * @param Square from
 	 * @param Square to
+	 * @return boolean success (if action succeeded).
 	 */
-	private void movePiece(Square from, Square to) {
+	private boolean movePiece(Square from, Square to) {
 		Piece piece = getPieceAt(from);
 		removePieceAt(from);
 		setPieceAt(to, piece);
+		if(getPieceAt(to) == piece) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	
 	
@@ -100,8 +122,9 @@ public class Board {
 	 * This method contains the capturing-logic like which piece can capture who etc.
 	 * @param Square from
 	 * @param Square to
+	 * @return boolean success (if action succeeded).
 	 */
-	private void tryCapturePiece(Square from, Square to) {
+	private boolean tryCapturePiece(Square from, Square to) {
 		Piece attackingPiece = getPieceAt(from);
 		Piece defendingPiece = getPieceAt(to);
 		
@@ -112,17 +135,27 @@ public class Board {
 			if(attackingPiece.getAnimal() == Animal.RAT && defendingPiece.getAnimal() == Animal.ELEPHANT) {
 				//A RAT cannot capture ELEPHANT from WATER.
 				if(from.getType() != Type.WATER) {
-					capturePiece(from, to);
+					boolean success = capturePiece(from, to);
+					return success;
 				}
+				return false;
 			}
 			//If the tile that are attacked are the attackers TRAP then capture without regard to values.
 			else if(to.getType() == Type.TRAP && to.getOwner().toString() == attackingPiece.getColor().toString()) {
-				capturePiece(from, to);
+				boolean success = capturePiece(from, to);
+				return success;
 			}
 			//If the value of the attacking piece is higher or equal to the defending piece then it will be captured.
 			else if(attackingPiece.getValue() >= defendingPiece.getValue()) {
-				capturePiece(from, to);
+				boolean success = capturePiece(from, to);
+				return success;
 			}
+			else {
+				return false;
+			}
+		}
+		else {
+			return false;
 		}
 	}
 	
@@ -130,29 +163,37 @@ public class Board {
 	 * This method capture the piece.
 	 * @param Square from
 	 * @param Square to
+	 * @return boolean success (if action succeeded).
 	 */
-	private void capturePiece(Square from, Square to) {
+	private boolean capturePiece(Square from, Square to) {
 		//TODO: record that the piece was captured.
-		movePiece(from, to);
+		boolean success = movePiece(from, to);
+		return success;
 	}
 	
 	/**
 	 * This method contains logic for TIGER or LION jumping the water.
 	 * @param Square from
 	 * @param Square to
+	 * @return boolean success (if action succeeded).
 	 */
-	public void tryJumpWater(Square from, Square to) {
+	public boolean tryJumpWater(Square from, Square to) {
 		//If they try to jump over water to the left.
 		if(to.equals(from.stepLeft())) {
 			Square jumpTo = new Square(from.getRow(), 1);
 			//Check if there is a piece in the water when jumping.
 			if(isSquareEmpty(to) && isSquareEmpty(to.stepLeft())) {
 				if(!isSquareEmpty(jumpTo)) {
-					tryCapturePiece(from, jumpTo);
+					boolean success = tryCapturePiece(from, jumpTo);
+					return success;
 				}
 				else {
-					movePiece(from, jumpTo);
+					boolean success = movePiece(from, jumpTo);
+					return success;
 				}
+			}
+			else {
+				return false;
 			}
 		}
 		//If they try to jump over water to the right.
@@ -161,11 +202,16 @@ public class Board {
 			//Check if there is a piece in the water when jumping.
 			if(isSquareEmpty(to) && isSquareEmpty(to.stepRight())) {
 				if(!isSquareEmpty(jumpTo)) {
-					tryCapturePiece(from, jumpTo);
+					boolean success = tryCapturePiece(from, jumpTo);
+					return success;
 				}
 				else {
-					movePiece(from, jumpTo);
+					boolean success = movePiece(from, jumpTo);
+					return success;
 				}
+			}
+			else {
+				return false;
 			}
 		}
 		//If they try to jump over water upwards.
@@ -174,11 +220,16 @@ public class Board {
 			//Check if there is a piece in the water when jumping.
 			if(isSquareEmpty(to) && isSquareEmpty(to.stepUp()) && isSquareEmpty(to.stepUp().stepUp())) {
 				if(!isSquareEmpty(jumpTo)) {
-					tryCapturePiece(from, jumpTo);
+					boolean success = tryCapturePiece(from, jumpTo);
+					return success;
 				}
 				else {
-					movePiece(from, jumpTo);
+					boolean success = movePiece(from, jumpTo);
+					return success;
 				}
+			}
+			else {
+				return false;
 			}
 		}
 		//If they try to jump over water downwards.
@@ -187,12 +238,20 @@ public class Board {
 			//Check if there is a piece in the water when jumping.
 			if(isSquareEmpty(to) && isSquareEmpty(to.stepDown()) && isSquareEmpty(to.stepDown().stepDown())) {
 				if(!isSquareEmpty(jumpTo)) {
-					tryCapturePiece(from, jumpTo);
+					boolean success = tryCapturePiece(from, jumpTo);
+					return success;
 				}
 				else {
-					movePiece(from, jumpTo);
+					boolean success = movePiece(from, jumpTo);
+					return success;
 				}
 			}
+			else {
+				return false;
+			}
+		}
+		else {
+			return false;
 		}
 	}
 

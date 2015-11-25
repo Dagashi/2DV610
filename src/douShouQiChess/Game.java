@@ -63,6 +63,7 @@ public class Game {
 	/**
 	 * This method contains the logic for each turn.
 	 */
+	@SuppressWarnings("resource")
 	public void nextTurn() {
 		//Start the turn by printing the board.
 		board.printBoard();
@@ -79,6 +80,18 @@ public class Game {
 		}
 		else if(board.getPieceAt(userMoveFrom).getColor() != whosTurn) {
 			System.out.println("That is not your piece.");
+		}
+		else {
+			if(coordinates.length == 3) {
+				if(coordinates[2].equals("up")) {
+					boolean success = board.tryMovePiece(userMoveFrom, userMoveFrom.stepUp());
+					if(success) {
+						Piece piece = board.getPieceAt(userMoveFrom.stepUp());
+						System.out.println("Moved "+piece.getColor().toString()+" "+piece.getAnimal().toString()+" upwards to square "+userMoveFrom.stepUp().getRow()+","+userMoveFrom.stepUp().getColumn()+".");
+					}
+					
+				}
+			}
 		}
 		
 	}
