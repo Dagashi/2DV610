@@ -82,10 +82,12 @@ public class Game {
 			System.out.println("That is not your piece.");
 		}
 		else {
+			//If move-direction been given.
 			if(coordinates.length == 3) {
+				//If they want to move up.
 				if(coordinates[2].equals("up")) {
-					boolean success = board.tryMovePiece(userMoveFrom, userMoveFrom.stepUp());
-					if(success) {
+					//If the move is successful print message.
+					if(board.tryMovePiece(userMoveFrom, userMoveFrom.stepUp())) {
 						Piece piece = board.getPieceAt(userMoveFrom.stepUp());
 						System.out.println("Moved "+piece.getColor().toString()+" "+piece.getAnimal().toString()+" upwards to square "+userMoveFrom.stepUp().getRow()+","+userMoveFrom.stepUp().getColumn()+".");
 					}

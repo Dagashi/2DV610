@@ -111,7 +111,7 @@ public class GameTest {
 	}
 	
 	@Test
-	public void test() {
+	public void ShouldFailIfOutputDiffersFomMovedElephant() {
 		PrintStream out = mock(PrintStream.class);
 		System.setOut(out);
 		
