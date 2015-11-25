@@ -67,5 +67,16 @@ public class GameTest {
 		
 		verify(out).println(contains("| Li |\n  ----------------------------------\n"));
 	}
+	
+	@Test
+	public void test() {
+		PrintStream out = mock(PrintStream.class);
+		System.setOut(out);
+		
+		Game game = new Game();
+		game.start();
+		
+		verify(out).println(endsWith("DARK Players' turn. Enter square you want to move from: "));
+	}
 
 }
