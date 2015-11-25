@@ -97,7 +97,7 @@ public class GameTest {
 	}
 	
 	@Test
-	public void test() {
+	public void ShouldFailIfEmptySquareMessageIsNotPrinted() {
 		PrintStream out = mock(PrintStream.class);
 		System.setOut(out);
 		
