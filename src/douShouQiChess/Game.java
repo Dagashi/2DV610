@@ -74,9 +74,13 @@ public class Game {
 		String userMovePiece = scan.next();
 		String[] coordinates = userMovePiece.split("\\,");
 		Square userMoveFrom = new Square(Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]));
-		if(board.getPieceAt(userMoveFrom).getColor() != whosTurn) {
+		if(board.isSquareEmpty(userMoveFrom)) {
+			System.out.println("There is no piece at that square.");
+		}
+		else if(board.getPieceAt(userMoveFrom).getColor() != whosTurn) {
 			System.out.println("That is not your piece.");
 		}
+		
 	}
 	
 }
