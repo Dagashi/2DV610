@@ -1,6 +1,7 @@
 package douShouQiChess;
 
 import java.util.HashMap;
+import java.util.Scanner;
 
 import douShouQiChess.Piece.Animal;
 import douShouQiChess.Piece.Color;
@@ -66,7 +67,16 @@ public class Game {
 		//Start the turn by printing the board.
 		board.printBoard();
 		
+		Scanner scan = new Scanner(System.in);
+		
 		System.out.println(whosTurn.toString()+" Players' turn. Enter square you want to move from: ");
+		
+		String userMovePiece = scan.next();
+		String[] coordinates = userMovePiece.split("\\,");
+		Square userMoveFrom = new Square(Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]));
+		if(board.getPieceAt(userMoveFrom).getColor() != whosTurn) {
+			System.out.println("That is not your piece.");
+		}
 	}
 	
 }
