@@ -102,6 +102,7 @@ public class Game {
 					}
 					
 				}
+				//If they want to move right.
 				else if(coordinates[2].equals("right")) {
 					//If the move is successful print message.
 					if(board.tryMovePiece(userMoveFrom, userMoveFrom.stepRight())) {
