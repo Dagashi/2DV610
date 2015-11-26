@@ -111,7 +111,7 @@ public class GameTest {
 	}
 	
 	@Test
-	public void ShouldFailIfOutputDiffersFomMovedElephant() {
+	public void ShouldFailIfOutputDiffersFomMovedElephantUp() {
 		PrintStream out = mock(PrintStream.class);
 		System.setOut(out);
 		
@@ -122,6 +122,20 @@ public class GameTest {
 		game.start();
 		
 		verify(out).println(contains("Moved DARK ELEPHANT upwards to square 6,1."));
+	}
+	
+	@Test
+	public void ShouldFailIfOutputDiffersFomMovedElephantDown() {
+		PrintStream out = mock(PrintStream.class);
+		System.setOut(out);
+		
+		ByteArrayInputStream in = new ByteArrayInputStream("7,1,down".getBytes());
+		System.setIn(in);
+		
+		Game game = new Game();
+		game.start();
+		
+		verify(out).println(contains("Moved DARK ELEPHANT downwards to square 8,1."));
 	}
 
 }
