@@ -113,12 +113,14 @@ public class Game {
 				}
 				//If they want to move left.
 				else if(coordinates[2].equals("left")) {
-					//If the move is successful print message.
-					if(board.tryMovePiece(userMoveFrom, userMoveFrom.stepLeft())) {
-						Piece piece = board.getPieceAt(userMoveFrom.stepLeft());
-						System.out.println("Moved "+piece.getColor().toString()+" "+piece.getAnimal().toString()+" left to square "+userMoveFrom.stepLeft().getRow()+","+userMoveFrom.stepLeft().getColumn()+".");
+					Square moveTo = userMoveFrom.stepLeft();
+					if(moveTo != null) {
+						//If the move is successful print message.
+						if(board.tryMovePiece(userMoveFrom, userMoveFrom.stepLeft())) {
+							Piece piece = board.getPieceAt(userMoveFrom.stepLeft());
+							System.out.println("Moved "+piece.getColor().toString()+" "+piece.getAnimal().toString()+" left to square "+userMoveFrom.stepLeft().getRow()+","+userMoveFrom.stepLeft().getColumn()+".");
+						}
 					}
-					
 				}
 			}
 		}

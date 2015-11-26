@@ -165,5 +165,19 @@ public class GameTest {
 		
 		verify(out).println(contains("Moved DARK WOLF left to square 7,2."));
 	}
+	
+	@Test
+	public void test() {
+		PrintStream out = mock(PrintStream.class);
+		System.setOut(out);
+		
+		ByteArrayInputStream in = new ByteArrayInputStream("7,1,left".getBytes());
+		System.setIn(in);
+		
+		Game game = new Game();
+		game.start();
+		
+		verify(out).println(contains(("The piece can not move there.")));
+	}
 
 }
