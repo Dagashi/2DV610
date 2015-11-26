@@ -121,6 +121,9 @@ public class Game {
 							System.out.println("Moved "+piece.getColor().toString()+" "+piece.getAnimal().toString()+" left to square "+userMoveFrom.stepLeft().getRow()+","+userMoveFrom.stepLeft().getColumn()+".");
 						}
 					}
+					else {
+						System.out.println("The piece can not move there.");
+					}
 				}
 			}
 		}
