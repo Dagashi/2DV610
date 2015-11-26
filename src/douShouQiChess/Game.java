@@ -112,6 +112,9 @@ public class Game {
 							System.out.println("Moved "+piece.getColor().toString()+" "+piece.getAnimal().toString()+" right to square "+userMoveFrom.stepRight().getRow()+","+userMoveFrom.stepRight().getColumn()+".");
 						}
 					}
+					else {
+						printCouldNotMove();
+					}
 					
 				}
 				//If they want to move left.
