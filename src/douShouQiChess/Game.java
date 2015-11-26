@@ -102,6 +102,14 @@ public class Game {
 					}
 					
 				}
+				else if(coordinates[2].equals("right")) {
+					//If the move is successful print message.
+					if(board.tryMovePiece(userMoveFrom, userMoveFrom.stepRight())) {
+						Piece piece = board.getPieceAt(userMoveFrom.stepRight());
+						System.out.println("Moved "+piece.getColor().toString()+" "+piece.getAnimal().toString()+" right to square "+userMoveFrom.stepRight().getRow()+","+userMoveFrom.stepRight().getColumn()+".");
+					}
+					
+				}
 			}
 		}
 		
