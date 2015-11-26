@@ -122,12 +122,16 @@ public class Game {
 						}
 					}
 					else {
-						System.out.println("The piece can not move there.");
+						printCouldNotMove();
 					}
 				}
 			}
 		}
 		
+	}
+	
+	private void printCouldNotMove() {
+		System.out.println("The piece can not move there.");
 	}
 	
 }
