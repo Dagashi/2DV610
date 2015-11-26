@@ -153,7 +153,7 @@ public class GameTest {
 	}
 	
 	@Test
-	public void test() {
+	public void ShouldFailIfOutputDiffersFomMovedWolfLeft() {
 		PrintStream out = mock(PrintStream.class);
 		System.setOut(out);
 		
