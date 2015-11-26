@@ -151,5 +151,19 @@ public class GameTest {
 		
 		verify(out).println(contains("Moved DARK ELEPHANT right to square 7,2."));
 	}
+	
+	@Test
+	public void test() {
+		PrintStream out = mock(PrintStream.class);
+		System.setOut(out);
+		
+		ByteArrayInputStream in = new ByteArrayInputStream("7,3,left".getBytes());
+		System.setIn(in);
+		
+		Game game = new Game();
+		game.start();
+		
+		verify(out).println(contains("Moved DARK WOLF left to square 7,2."));
+	}
 
 }
