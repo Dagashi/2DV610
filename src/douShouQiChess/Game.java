@@ -93,6 +93,14 @@ public class Game {
 					}
 					
 				}
+				else if(coordinates[2].equals("down")) {
+					//If the move is successful print message.
+					if(board.tryMovePiece(userMoveFrom, userMoveFrom.stepDown())) {
+						Piece piece = board.getPieceAt(userMoveFrom.stepDown());
+						System.out.println("Moved "+piece.getColor().toString()+" "+piece.getAnimal().toString()+" downwards to square "+userMoveFrom.stepDown().getRow()+","+userMoveFrom.stepDown().getColumn()+".");
+					}
+					
+				}
 			}
 		}
 		
