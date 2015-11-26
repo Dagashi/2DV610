@@ -179,5 +179,19 @@ public class GameTest {
 		
 		verify(out).println(contains(("The piece can not move there.")));
 	}
+	
+	@Test
+	public void test() {
+		PrintStream out = mock(PrintStream.class);
+		System.setOut(out);
+		
+		ByteArrayInputStream in = new ByteArrayInputStream("7,7,right".getBytes());
+		System.setIn(in);
+		
+		Game game = new Game();
+		game.start();
+		
+		verify(out).println(contains(("The piece can not move there.")));
+	}
 
 }
