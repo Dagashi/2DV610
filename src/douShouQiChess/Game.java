@@ -107,9 +107,9 @@ public class Game {
 					Square moveTo = userMoveFrom.stepRight();
 					if(moveTo != null) {
 						//If the move is successful print message.
-						if(board.tryMovePiece(userMoveFrom, userMoveFrom.stepRight())) {
-							Piece piece = board.getPieceAt(userMoveFrom.stepRight());
-							System.out.println("Moved "+piece.getColor().toString()+" "+piece.getAnimal().toString()+" right to square "+userMoveFrom.stepRight().getRow()+","+userMoveFrom.stepRight().getColumn()+".");
+						if(board.tryMovePiece(userMoveFrom, moveTo)) {
+							Piece piece = board.getPieceAt(moveTo);
+							System.out.println("Moved "+piece.getColor().toString()+" "+piece.getAnimal().toString()+" right to square "+moveTo.getRow()+","+moveTo.getColumn()+".");
 						}
 					}
 					else {
@@ -122,9 +122,9 @@ public class Game {
 					Square moveTo = userMoveFrom.stepLeft();
 					if(moveTo != null) {
 						//If the move is successful print message.
-						if(board.tryMovePiece(userMoveFrom, userMoveFrom.stepLeft())) {
-							Piece piece = board.getPieceAt(userMoveFrom.stepLeft());
-							System.out.println("Moved "+piece.getColor().toString()+" "+piece.getAnimal().toString()+" left to square "+userMoveFrom.stepLeft().getRow()+","+userMoveFrom.stepLeft().getColumn()+".");
+						if(board.tryMovePiece(userMoveFrom, moveTo)) {
+							Piece piece = board.getPieceAt(moveTo);
+							System.out.println("Moved "+piece.getColor().toString()+" "+piece.getAnimal().toString()+" left to square "+moveTo.getRow()+","+moveTo.getColumn()+".");
 						}
 					}
 					else {

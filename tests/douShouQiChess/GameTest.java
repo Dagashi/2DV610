@@ -181,7 +181,7 @@ public class GameTest {
 	}
 	
 	@Test
-	public void test() {
+	public void ShouldFailIfOutputIsNotRightWhenMoveRightOutOfBoard() {
 		PrintStream out = mock(PrintStream.class);
 		System.setOut(out);
 		
